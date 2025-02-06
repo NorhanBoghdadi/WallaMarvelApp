@@ -8,7 +8,7 @@
 import Foundation
 
 protocol NetworkServiceProtocol {
-    func request<T: Decodable>(endpoint: APIEndpoint) async throws -> T
+    func request<T: Decodable>(endpoint: MarvelEndpoint) async throws -> T
 }
 
 final class NetworkService: NetworkServiceProtocol {
@@ -20,7 +20,7 @@ final class NetworkService: NetworkServiceProtocol {
         self.decoder = decoder
     }
     
-    func request<T: Decodable>(endpoint: APIEndpoint) async throws -> T {
+    func request<T: Decodable>(endpoint: MarvelEndpoint) async throws -> T {
         guard var components = URLComponents(string: APIConfiguration.baseURL + endpoint.path) else {
             throw NetworkError.invalidURL
         }
