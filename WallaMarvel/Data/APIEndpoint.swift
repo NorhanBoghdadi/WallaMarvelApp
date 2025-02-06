@@ -15,14 +15,11 @@ protocol APIEndpoint {
 
 enum MarvelEndpoint: APIEndpoint {
     case characters
-    case characterDetail(id: Int)
 
     var path: String {
         switch self {
         case .characters:
             return "/v1/public/characters"
-        case .characterDetail(let id):
-            return "/v1/public/characters/\(id)"
         }
     }
 
