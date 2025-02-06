@@ -1,17 +1,20 @@
 import Foundation
 
 protocol MarvelRepositoryProtocol {
-    func getHeroes(completionBlock: @escaping (CharacterDataContainer) -> Void)
+    func getCharacters() async throws -> [CharacterDataModel]
 }
 
 final class MarvelRepository: MarvelRepositoryProtocol {
-    private let dataSource: MarvelDataSourceProtocol
-    
-    init(dataSource: MarvelDataSourceProtocol = MarvelDataSource()) {
-        self.dataSource = dataSource
+    private let networkService: NetworkServiceProtocol
+
+    init(networkService: NetworkServiceProtocol = NetworkService()) {
+        self.networkService = networkService
     }
-    
-    func getHeroes(completionBlock: @escaping (CharacterDataContainer) -> Void) {
-        dataSource.getHeroes(completionBlock: completionBlock)
+
+    func getCharacters() async throws -> [CharacterDataModel] {
+        let response: CharacterDataContainer = try await networkService.request(
+            endpoint: .characters
+        )
+        return response.characters
     }
 }
