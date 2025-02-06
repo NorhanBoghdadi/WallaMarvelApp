@@ -9,7 +9,8 @@
 // MARK: - Network Error
 enum NetworkError: Error {
     case invalidURL
-    case noData
+    case invalidResponse
     case decodingError
-    case serverError(Error)
+    case serverError(String)
+    case noData
 }
