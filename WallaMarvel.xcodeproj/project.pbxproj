@@ -22,10 +22,8 @@
 		1A7B9BBF286D81B600EBC1A6 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7B9BBE286D81B600EBC1A6 /* Thumbnail.swift */; };
 		1A821ECC2862FF990024D397 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A821ECB2862FF990024D397 /* String+MD5.swift */; };
 		1A821ED4286302EC0024D397 /* CharacterResponseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A821ED3286302EC0024D397 /* CharacterResponseDataModel.swift */; };
-		1A821ED6286305590024D397 /* MarvelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A821ED5286305590024D397 /* MarvelDataSource.swift */; };
 		1A821ED82863081A0024D397 /* MarvelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A821ED72863081A0024D397 /* MarvelRepository.swift */; };
 		1A821EDA2863096C0024D397 /* ListHeroesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A821ED92863096C0024D397 /* ListHeroesPresenter.swift */; };
-		1AC0347F2863214900E93178 /* GetHeroes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0347E2863214900E93178 /* GetHeroes.swift */; };
 		EBABC23B2D54E610003342E5 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC23A2D54E610003342E5 /* NetworkError.swift */; };
 		EBABC23D2D54E6AB003342E5 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC23C2D54E6AB003342E5 /* APIEndpoint.swift */; };
 		EBABC23F2D54E8D3003342E5 /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC23E2D54E8D3003342E5 /* APIConfiguration.swift */; };
@@ -70,10 +68,8 @@
 		1A7B9BBE286D81B600EBC1A6 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		1A821ECB2862FF990024D397 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		1A821ED3286302EC0024D397 /* CharacterResponseDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterResponseDataModel.swift; sourceTree = "<group>"; };
-		1A821ED5286305590024D397 /* MarvelDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelDataSource.swift; sourceTree = "<group>"; };
 		1A821ED72863081A0024D397 /* MarvelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelRepository.swift; sourceTree = "<group>"; };
 		1A821ED92863096C0024D397 /* ListHeroesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHeroesPresenter.swift; sourceTree = "<group>"; };
-		1AC0347E2863214900E93178 /* GetHeroes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHeroes.swift; sourceTree = "<group>"; };
 		EBABC23A2D54E610003342E5 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		EBABC23C2D54E6AB003342E5 /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		EBABC23E2D54E8D3003342E5 /* APIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
@@ -182,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				1A821ED72863081A0024D397 /* MarvelRepository.swift */,
-				1AC0347D286320F000E93178 /* UseCases */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -190,7 +185,6 @@
 		1A821EC72862FD6E0024D397 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				1A821ED5286305590024D397 /* MarvelDataSource.swift */,
 				EBABC23C2D54E6AB003342E5 /* APIEndpoint.swift */,
 				EBABC23E2D54E8D3003342E5 /* APIConfiguration.swift */,
 				EBABC2402D54E93E003342E5 /* NetworkServiceProtocol.swift */,
@@ -217,14 +211,6 @@
 				1A7B9BBE286D81B600EBC1A6 /* Thumbnail.swift */,
 			);
 			path = DataModel;
-			sourceTree = "<group>";
-		};
-		1AC0347D286320F000E93178 /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-				1AC0347E2863214900E93178 /* GetHeroes.swift */,
-			);
-			path = UseCases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,11 +349,9 @@
 				1A821ED82863081A0024D397 /* MarvelRepository.swift in Sources */,
 				EBABC23B2D54E610003342E5 /* NetworkError.swift in Sources */,
 				1A0E3A9D2862F7E200132FCB /* ListHeroesViewController.swift in Sources */,
-				1AC0347F2863214900E93178 /* GetHeroes.swift in Sources */,
 				1A7B9BBD286D81AA00EBC1A6 /* CharacterDataModel.swift in Sources */,
 				1A0E3A992862F7E200132FCB /* AppDelegate.swift in Sources */,
 				1A821ECC2862FF990024D397 /* String+MD5.swift in Sources */,
-				1A821ED6286305590024D397 /* MarvelDataSource.swift in Sources */,
 				1A3B732A286AE195007BF626 /* ListHeroesAdapter.swift in Sources */,
 				1A7B9BBF286D81B600EBC1A6 /* Thumbnail.swift in Sources */,
 				1A821EDA2863096C0024D397 /* ListHeroesPresenter.swift in Sources */,

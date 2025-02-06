@@ -3,7 +3,7 @@ import Foundation
 protocol ListHeroesPresenterProtocol: AnyObject {
     var ui: ListHeroesUI? { get set }
     func screenTitle() -> String
-    func getHeroes()
+    func getHeroes() async
 }
 
 protocol ListHeroesUI: AnyObject {
@@ -12,10 +12,10 @@ protocol ListHeroesUI: AnyObject {
 
 final class ListHeroesPresenter: ListHeroesPresenterProtocol {
     var ui: ListHeroesUI?
-    private let getHeroesUseCase: GetHeroesUseCaseProtocol
-    
-    init(getHeroesUseCase: GetHeroesUseCaseProtocol = GetHeroes()) {
-        self.getHeroesUseCase = getHeroesUseCase
+    private let getCharactersRepo: MarvelRepositoryProtocol
+
+    init(getCharactersRepo: MarvelRepositoryProtocol = MarvelRepository()) {
+        self.getCharactersRepo = getCharactersRepo
     }
     
     func screenTitle() -> String {
@@ -24,10 +24,13 @@ final class ListHeroesPresenter: ListHeroesPresenterProtocol {
     
     // MARK: UseCases
     
-    func getHeroes() {
-        getHeroesUseCase.execute { characterDataContainer in
-            print("Characters \(characterDataContainer.characters)")
-            self.ui?.update(heroes: characterDataContainer.characters)
+    func getHeroes() async {
+        do {
+            let characters = try await getCharactersRepo.getCharacters()
+            print("Characters \(characters)")
+            self.ui?.update(heroes: characters)
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }
