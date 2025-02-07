@@ -2,6 +2,7 @@ import Foundation
 
 protocol MarvelRepositoryProtocol {
     func getCharacters() async throws -> [CharacterDataModel]
+    func getCharacterDetails(id: Int) async throws -> CharacterDataModel
 }
 
 final class MarvelRepository: MarvelRepositoryProtocol {
@@ -16,5 +17,15 @@ final class MarvelRepository: MarvelRepositoryProtocol {
             endpoint: .characters
         )
         return response.characters
+    }
+    
+    func getCharacterDetails(id: Int) async throws -> CharacterDataModel {
+        let response: CharacterDataContainer = try await networkService.request(
+            endpoint: .characterDetail(id: id)
+        )
+        guard let character = response.characters.first else {
+            throw NetworkError.noData
+        }
+        return character
     }
 }
