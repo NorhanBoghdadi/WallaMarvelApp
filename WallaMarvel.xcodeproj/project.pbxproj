@@ -32,6 +32,7 @@
 		EBABC2472D562644003342E5 /* SeriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC2462D562644003342E5 /* SeriesList.swift */; };
 		EBABC2492D56264D003342E5 /* StoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC2482D56264D003342E5 /* StoryList.swift */; };
 		EBABC24B2D5626E2003342E5 /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC24A2D5626E2003342E5 /* EventList.swift */; };
+		EBABC24D2D563012003342E5 /* HeroDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC24C2D563012003342E5 /* HeroDetailView.swift */; };
 		EBE1CAC12D53577F00DC7D2A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EBE1CAC02D53577F00DC7D2A /* Kingfisher */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		EBABC2462D562644003342E5 /* SeriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesList.swift; sourceTree = "<group>"; };
 		EBABC2482D56264D003342E5 /* StoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryList.swift; sourceTree = "<group>"; };
 		EBABC24A2D5626E2003342E5 /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
+		EBABC24C2D563012003342E5 /* HeroDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 		1A821EC52862FD500024D397 /* Detail Heroe */ = {
 			isa = PBXGroup;
 			children = (
+				EBABC24C2D563012003342E5 /* HeroDetailView.swift */,
 			);
 			path = "Detail Heroe";
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 			files = (
 				1A821ED82863081A0024D397 /* MarvelRepository.swift in Sources */,
 				EBABC23B2D54E610003342E5 /* NetworkError.swift in Sources */,
+				EBABC24D2D563012003342E5 /* HeroDetailView.swift in Sources */,
 				1A0E3A9D2862F7E200132FCB /* ListHeroesViewController.swift in Sources */,
 				1A7B9BBD286D81AA00EBC1A6 /* CharacterDataModel.swift in Sources */,
 				1A0E3A992862F7E200132FCB /* AppDelegate.swift in Sources */,
