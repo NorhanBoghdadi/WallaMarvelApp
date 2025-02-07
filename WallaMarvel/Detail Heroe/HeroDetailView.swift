@@ -9,90 +9,157 @@ import UIKit
 
 final class HeroDetailView: UIView {
     private enum Layout {
-        static let imageHeight: CGFloat = 200
-        static let spacing: CGFloat = 16
         static let padding: CGFloat = 20
+        static let spacing: CGFloat = 16
+        static let imageHeight: CGFloat = 400
     }
-    
-    private let scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        return scrollView
-    }()
-    
-    private let contentView: UIView = {
+
+    private let scrollView = UIScrollView()
+    private let contentStackView = UIStackView()
+
+    private let heroImageContainer: UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .black
         return view
     }()
-    
+
     private let heroImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    
-    private let nameLabel: UILabel = {
+
+    private let overlayView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black.withAlphaComponent(0.5)
+        return view
+    }()
+
+    private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 24, weight: .bold)
+        label.font = .systemFont(ofSize: 36, weight: .bold)
+        label.textColor = .white
         label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 16)
+        label.font = .systemFont(ofSize: 17)
+        label.textColor = .white
         label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = UIColor(white: 0.1, alpha: 0.8)
+        label.layer.cornerRadius = 12
+        label.clipsToBounds = true
         return label
     }()
-    
-    private let comicsLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 18, weight: .semibold)
-        label.text = "Comics"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+
+    private let comicsStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 12
+        stack.backgroundColor = UIColor(white: 0.1, alpha: 0.8)
+        stack.layer.cornerRadius = 12
+        stack.isLayoutMarginsRelativeArrangement = true
+        stack.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        return stack
     }()
-    
-    private let comicsCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 120, height: 180)
-        layout.minimumLineSpacing = 12
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .clear
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        return collectionView
+
+    private let seriesStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 12
+        stack.backgroundColor = UIColor(white: 0.1, alpha: 0.8)
+        stack.layer.cornerRadius = 12
+        stack.isLayoutMarginsRelativeArrangement = true
+        stack.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        return stack
     }()
-    
+
     init() {
         super.init(frame: .zero)
         setupViews()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    private func setupViews() {
-        backgroundColor = .systemBackground
-        
-        addSubview(scrollView)
-        scrollView.addSubview(contentView)
-        
-        contentView.addSubview(heroImageView)
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(descriptionLabel)
-        contentView.addSubview(comicsLabel)
-        contentView.addSubview(comicsCollectionView)
 
+    private func setupViews() {
+        backgroundColor = .black
+
+        [scrollView, contentStackView, heroImageContainer, heroImageView, overlayView].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+
+        addSubview(scrollView)
+        scrollView.addSubview(contentStackView)
+
+        contentStackView.axis = .vertical
+        contentStackView.spacing = Layout.spacing
+
+        setupImageContainer()
+        setupStackViews()
         setupConstraints()
+    }
+
+    private func setupImageContainer() {
+        heroImageContainer.addSubview(heroImageView)
+        heroImageContainer.addSubview(overlayView)
+        heroImageContainer.addSubview(titleLabel)
+
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            heroImageView.topAnchor.constraint(equalTo: heroImageContainer.topAnchor),
+            heroImageView.leadingAnchor.constraint(equalTo: heroImageContainer.leadingAnchor),
+            heroImageView.trailingAnchor.constraint(equalTo: heroImageContainer.trailingAnchor),
+            heroImageView.bottomAnchor.constraint(equalTo: heroImageContainer.bottomAnchor),
+
+            overlayView.topAnchor.constraint(equalTo: heroImageContainer.topAnchor),
+            overlayView.leadingAnchor.constraint(equalTo: heroImageContainer.leadingAnchor),
+            overlayView.trailingAnchor.constraint(equalTo: heroImageContainer.trailingAnchor),
+            overlayView.bottomAnchor.constraint(equalTo: heroImageContainer.bottomAnchor),
+
+            titleLabel.leadingAnchor.constraint(equalTo: heroImageContainer.leadingAnchor, constant: Layout.padding),
+            titleLabel.trailingAnchor.constraint(equalTo: heroImageContainer.trailingAnchor, constant: -Layout.padding),
+            titleLabel.bottomAnchor.constraint(equalTo: heroImageContainer.bottomAnchor, constant: -Layout.padding)
+        ])
+    }
+
+    private func setupStackViews() {
+        [heroImageContainer, createSectionView("Description", descriptionLabel),
+         createSectionView("Comics", comicsStackView),
+         createSectionView("Series", seriesStackView)].forEach {
+            contentStackView.addArrangedSubview($0)
+        }
+    }
+
+    private func createSectionView(_ title: String, _ contentView: UIView) -> UIView {
+        let container = UIView()
+        let titleLabel = UILabel()
+        titleLabel.text = title
+        titleLabel.font = .systemFont(ofSize: 20, weight: .bold)
+        titleLabel.textColor = .white
+
+        [titleLabel, contentView].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            container.addSubview($0)
+        }
+
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: container.topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: Layout.padding),
+            titleLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -Layout.padding),
+
+            contentView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            contentView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: Layout.padding),
+            contentView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -Layout.padding),
+            contentView.bottomAnchor.constraint(equalTo: container.bottomAnchor)
+        ])
+
+        return container
     }
 
     private func setupConstraints() {
@@ -102,44 +169,50 @@ final class HeroDetailView: UIView {
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
 
-            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
 
-            heroImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            heroImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            heroImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            heroImageView.heightAnchor.constraint(equalToConstant: Layout.imageHeight),
-
-            nameLabel.topAnchor.constraint(equalTo: heroImageView.bottomAnchor, constant: Layout.spacing),
-            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Layout.padding),
-            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Layout.padding),
-
-            descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: Layout.spacing),
-            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Layout.padding),
-            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Layout.padding),
-
-            comicsLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: Layout.spacing * 2),
-            comicsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Layout.padding),
-            comicsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Layout.padding),
-
-            comicsCollectionView.topAnchor.constraint(equalTo: comicsLabel.bottomAnchor, constant: Layout.spacing),
-            comicsCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Layout.padding),
-            comicsCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            comicsCollectionView.heightAnchor.constraint(equalToConstant: 180),
-            comicsCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Layout.padding)
+            heroImageContainer.heightAnchor.constraint(equalToConstant: Layout.imageHeight)
         ])
-
     }
 
     func configure(with hero: CharacterDataModel) {
-        nameLabel.text = hero.name
+        titleLabel.text = hero.name
         descriptionLabel.text = hero.description.isEmpty ? "No description available" : hero.description
-        
+
         if let url = URL(string: hero.thumbnail.path + "/landscape_incredible." + hero.thumbnail.extension) {
-            heroImageView.kf.setImage(with: url, placeholder: UIImage(systemName: "person.fill"))
+            heroImageView.kf.setImage(with: url)
         }
+
+        configureComics(hero.comics)
+        configureSeries(hero.series)
+    }
+
+    private func configureComics(_ comics: ComicList) {
+        comicsStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        comics.items.forEach { comic in
+            let label = createItemLabel(comic.name)
+            comicsStackView.addArrangedSubview(label)
+        }
+    }
+
+    private func configureSeries(_ series: SeriesList) {
+        seriesStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        series.items.forEach { series in
+            let label = createItemLabel(series.name)
+            seriesStackView.addArrangedSubview(label)
+        }
+    }
+
+    private func createItemLabel(_ text: String) -> UILabel {
+        let label = UILabel()
+        label.text = text
+        label.font = .systemFont(ofSize: 16)
+        label.textColor = .white
+        label.numberOfLines = 0
+        return label
     }
 }

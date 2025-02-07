@@ -18,11 +18,11 @@ final class HeroDetailPresenter: HeroDetailPresenterProtocol {
     }
     
     func getHeroDetails(id: Int) async {
-        do {
-            let details = try await marvelRepository.getCharacterDetails(id: id)
-            // TODO: Update UI with details
-        } catch {
-            print("Error fetching hero details: \(error)")
-        }
+//        do {
+//            let details = try await marvelRepository.getCharacterDetails(id: id)
+//            // TODO: Update UI with details
+//        } catch {
+//            print("Error fetching hero details: \(error)")
+//        }
     }
 }

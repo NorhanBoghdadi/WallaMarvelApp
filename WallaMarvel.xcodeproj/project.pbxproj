@@ -34,6 +34,7 @@
 		EBABC24B2D5626E2003342E5 /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC24A2D5626E2003342E5 /* EventList.swift */; };
 		EBABC24D2D563012003342E5 /* HeroDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC24C2D563012003342E5 /* HeroDetailView.swift */; };
 		EBABC24F2D563A59003342E5 /* HeroDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC24E2D563A59003342E5 /* HeroDetailPresenter.swift */; };
+		EBABC2512D563E8F003342E5 /* HeroDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC2502D563E8F003342E5 /* HeroDetailViewController.swift */; };
 		EBE1CAC12D53577F00DC7D2A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EBE1CAC02D53577F00DC7D2A /* Kingfisher */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		EBABC24A2D5626E2003342E5 /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
 		EBABC24C2D563012003342E5 /* HeroDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailView.swift; sourceTree = "<group>"; };
 		EBABC24E2D563A59003342E5 /* HeroDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailPresenter.swift; sourceTree = "<group>"; };
+		EBABC2502D563E8F003342E5 /* HeroDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 		1A821EC52862FD500024D397 /* Detail Heroe */ = {
 			isa = PBXGroup;
 			children = (
+				EBABC2502D563E8F003342E5 /* HeroDetailViewController.swift */,
 				EBABC24E2D563A59003342E5 /* HeroDetailPresenter.swift */,
 				EBABC24C2D563012003342E5 /* HeroDetailView.swift */,
 			);
@@ -373,6 +376,7 @@
 				EBABC2452D562636003342E5 /* ComicList.swift in Sources */,
 				1A821ECC2862FF990024D397 /* String+MD5.swift in Sources */,
 				1A3B732A286AE195007BF626 /* ListHeroesAdapter.swift in Sources */,
+				EBABC2512D563E8F003342E5 /* HeroDetailViewController.swift in Sources */,
 				EBABC24B2D5626E2003342E5 /* EventList.swift in Sources */,
 				1A7B9BBF286D81B600EBC1A6 /* Thumbnail.swift in Sources */,
 				1A821EDA2863096C0024D397 /* ListHeroesPresenter.swift in Sources */,
