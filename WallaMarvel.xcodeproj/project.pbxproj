@@ -28,6 +28,10 @@
 		EBABC23D2D54E6AB003342E5 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC23C2D54E6AB003342E5 /* APIEndpoint.swift */; };
 		EBABC23F2D54E8D3003342E5 /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC23E2D54E8D3003342E5 /* APIConfiguration.swift */; };
 		EBABC2412D54E93E003342E5 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC2402D54E93E003342E5 /* NetworkServiceProtocol.swift */; };
+		EBABC2452D562636003342E5 /* ComicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC2442D562636003342E5 /* ComicList.swift */; };
+		EBABC2472D562644003342E5 /* SeriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC2462D562644003342E5 /* SeriesList.swift */; };
+		EBABC2492D56264D003342E5 /* StoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC2482D56264D003342E5 /* StoryList.swift */; };
+		EBABC24B2D5626E2003342E5 /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC24A2D5626E2003342E5 /* EventList.swift */; };
 		EBE1CAC12D53577F00DC7D2A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EBE1CAC02D53577F00DC7D2A /* Kingfisher */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +78,10 @@
 		EBABC23C2D54E6AB003342E5 /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		EBABC23E2D54E8D3003342E5 /* APIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
 		EBABC2402D54E93E003342E5 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		EBABC2442D562636003342E5 /* ComicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicList.swift; sourceTree = "<group>"; };
+		EBABC2462D562644003342E5 /* SeriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesList.swift; sourceTree = "<group>"; };
+		EBABC2482D56264D003342E5 /* StoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryList.swift; sourceTree = "<group>"; };
+		EBABC24A2D5626E2003342E5 /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +213,10 @@
 		1A821ED2286302D40024D397 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				EBABC2482D56264D003342E5 /* StoryList.swift */,
+				EBABC24A2D5626E2003342E5 /* EventList.swift */,
+				EBABC2462D562644003342E5 /* SeriesList.swift */,
+				EBABC2442D562636003342E5 /* ComicList.swift */,
 				EBABC23A2D54E610003342E5 /* NetworkError.swift */,
 				1A821ED3286302EC0024D397 /* CharacterResponseDataModel.swift */,
 				1A7B9BBC286D81AA00EBC1A6 /* CharacterDataModel.swift */,
@@ -351,12 +363,16 @@
 				1A0E3A9D2862F7E200132FCB /* ListHeroesViewController.swift in Sources */,
 				1A7B9BBD286D81AA00EBC1A6 /* CharacterDataModel.swift in Sources */,
 				1A0E3A992862F7E200132FCB /* AppDelegate.swift in Sources */,
+				EBABC2452D562636003342E5 /* ComicList.swift in Sources */,
 				1A821ECC2862FF990024D397 /* String+MD5.swift in Sources */,
 				1A3B732A286AE195007BF626 /* ListHeroesAdapter.swift in Sources */,
+				EBABC24B2D5626E2003342E5 /* EventList.swift in Sources */,
 				1A7B9BBF286D81B600EBC1A6 /* Thumbnail.swift in Sources */,
 				1A821EDA2863096C0024D397 /* ListHeroesPresenter.swift in Sources */,
+				EBABC2492D56264D003342E5 /* StoryList.swift in Sources */,
 				1A0E3A9B2862F7E200132FCB /* SceneDelegate.swift in Sources */,
 				1A3B7326286ADD1E007BF626 /* ListHeroesTableView.swift in Sources */,
+				EBABC2472D562644003342E5 /* SeriesList.swift in Sources */,
 				EBABC23F2D54E8D3003342E5 /* APIConfiguration.swift in Sources */,
 				EBABC2412D54E93E003342E5 /* NetworkServiceProtocol.swift in Sources */,
 				1A3B7328286ADEE6007BF626 /* ListHeroesTableViewCell.swift in Sources */,
