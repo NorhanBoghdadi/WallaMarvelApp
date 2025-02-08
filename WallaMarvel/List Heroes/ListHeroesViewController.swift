@@ -74,3 +74,16 @@ extension ListHeroesViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
 }
+extension ListHeroesViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let screenHeight = scrollView.bounds.height
+
+        if position > contentHeight - screenHeight * 1.5 {
+            Task {
+                await presenter?.loadMoreHeroes()
+            }
+        }
+    }
+}
