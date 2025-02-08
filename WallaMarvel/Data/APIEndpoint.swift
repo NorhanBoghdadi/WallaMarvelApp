@@ -14,7 +14,7 @@ protocol APIEndpoint {
 }
 
 enum MarvelEndpoint: APIEndpoint {
-    case characters
+    case characters(page: Int)
     case characterDetail(id: Int)
 
     var path: String {
@@ -28,11 +28,22 @@ enum MarvelEndpoint: APIEndpoint {
 
     var queryItems: [URLQueryItem] {
         var items = [URLQueryItem]()
-
         switch self {
+        case .characters:
+            items.append(URLQueryItem(name: "limit", value: "20"))
+            items.append(URLQueryItem(name: "offset", value: "\(offset)"))
         default:
             break
         }
         return items
+    }
+
+    private var offset: Int {
+        switch self {
+        case .characters(let page):
+            return page * 20
+        default:
+            return 0
+        }
     }
 }
