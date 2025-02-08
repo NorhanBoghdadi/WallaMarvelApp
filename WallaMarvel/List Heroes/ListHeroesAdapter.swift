@@ -4,8 +4,8 @@ import UIKit
 final class ListHeroesAdapter: NSObject, UITableViewDataSource {
     var heroes: [CharacterDataModel] {
         didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.reloadData()
             }
         }
     }

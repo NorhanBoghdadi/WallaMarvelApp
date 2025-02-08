@@ -7,21 +7,21 @@ final class ListHeroesView: UIView {
         static let spacing: CGFloat = 12
     }
 
-    let initialLoadingIndicator: UIActivityIndicatorView = {
+    lazy var initialLoadingIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.color = .white
         indicator.hidesWhenStopped = true
         return indicator
     }()
 
-    let paginationLoadingIndicator: UIActivityIndicatorView = {
+    lazy var paginationLoadingIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .medium)
         indicator.color = .white
         indicator.hidesWhenStopped = true
         return indicator
     }()
 
-    let searchBar: UISearchBar = {
+    lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Search heroes..."
         searchBar.searchBarStyle = .minimal
@@ -32,7 +32,7 @@ final class ListHeroesView: UIView {
         return searchBar
     }()
 
-    let heroesTableView: UITableView = {
+    lazy var heroesTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.register(ListHeroesTableViewCell.self, forCellReuseIdentifier: "ListHeroesTableViewCell")
         tableView.backgroundColor = .black

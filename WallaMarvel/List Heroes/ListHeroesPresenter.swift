@@ -64,7 +64,7 @@ final class ListHeroesPresenter: ListHeroesPresenterProtocol {
             if !characters.isEmpty {
                 currentPage = nextPage
                 allHeroes.append(contentsOf: characters)
-                self.ui?.update(heroes: allHeroes)
+                ui?.update(heroes: allHeroes)
             } else {
                 hasMorePages = false
             }
@@ -77,10 +77,10 @@ final class ListHeroesPresenter: ListHeroesPresenterProtocol {
 
     func searchHeroes(query: String) async {
         if query.isEmpty {
-            self.ui?.update(heroes: allHeroes)
+            ui?.update(heroes: allHeroes)
         } else {
             let filtered = allHeroes.filter { $0.name.lowercased().contains(query.lowercased()) }
-            self.ui?.update(heroes: filtered)
+            ui?.update(heroes: filtered)
         }
     }
 }

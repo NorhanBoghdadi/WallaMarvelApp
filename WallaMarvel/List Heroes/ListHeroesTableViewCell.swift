@@ -9,7 +9,7 @@ final class ListHeroesTableViewCell: UITableViewCell {
         static let cornerRadius: CGFloat = 12
     }
 
-    private let containerView: UIView = {
+    private lazy var containerView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(white: 0.1, alpha: 1.0)
         view.layer.cornerRadius = Layout.cornerRadius
@@ -17,14 +17,14 @@ final class ListHeroesTableViewCell: UITableViewCell {
         return view
     }()
 
-    private let heroImageView: UIImageView = {
+    private lazy var heroImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
     }()
 
-    private let overlayView: UIView = {
+    private lazy var overlayView: UIView = {
         let view = UIView()
         let gradient = CAGradientLayer()
         gradient.colors = [
@@ -36,7 +36,7 @@ final class ListHeroesTableViewCell: UITableViewCell {
         return view
     }()
 
-    private let nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 24, weight: .bold)
         label.textColor = .white
