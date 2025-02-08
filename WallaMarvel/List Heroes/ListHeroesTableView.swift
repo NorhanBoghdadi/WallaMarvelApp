@@ -14,6 +14,7 @@ final class ListHeroesView: UIView {
         searchBar.barStyle = .black
         searchBar.tintColor = .white
         searchBar.searchTextField.textColor = .white
+        searchBar.showsCancelButton = true
         return searchBar
     }()
 

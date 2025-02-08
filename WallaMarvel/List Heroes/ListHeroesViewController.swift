@@ -53,7 +53,24 @@ extension ListHeroesViewController: UITableViewDelegate {
 extension ListHeroesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         Task {
-            
+            await presenter?.searchHeroes(query: searchText)
         }
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let text = searchBar.text {
+            Task {
+                await presenter?.searchHeroes(query: text)
+            }
+        }
+        searchBar.resignFirstResponder()
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        Task {
+            await presenter?.searchHeroes(query: "")
+        }
+        searchBar.resignFirstResponder()
     }
 }
