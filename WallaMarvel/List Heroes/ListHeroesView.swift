@@ -7,6 +7,20 @@ final class ListHeroesView: UIView {
         static let spacing: CGFloat = 12
     }
 
+    let initialLoadingIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.color = .white
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+
+    let paginationLoadingIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.color = .white
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+
     let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Search heroes..."
@@ -40,7 +54,8 @@ final class ListHeroesView: UIView {
     private func setupViews() {
         backgroundColor = .black
 
-        [searchBar, heroesTableView].forEach {
+        [searchBar, heroesTableView,
+         initialLoadingIndicator, paginationLoadingIndicator].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             addSubview($0)
         }
@@ -56,7 +71,13 @@ final class ListHeroesView: UIView {
             heroesTableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
             heroesTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             heroesTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            heroesTableView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            heroesTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+
+            initialLoadingIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+            initialLoadingIndicator.centerYAnchor.constraint(equalTo: centerYAnchor),
+
+            paginationLoadingIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+            paginationLoadingIndicator.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20)
         ])
     }
 }

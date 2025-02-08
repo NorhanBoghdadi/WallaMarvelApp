@@ -39,6 +39,33 @@ extension ListHeroesViewController: ListHeroesUI {
     func update(heroes: [CharacterDataModel]) {
         listHeroesProvider?.heroes = heroes
     }
+    
+    func showInitialLoading() {
+        DispatchQueue.main.async { [weak self] in
+            self?.mainView.initialLoadingIndicator.startAnimating()
+            self?.mainView.heroesTableView.isHidden = true
+        }
+    }
+
+    func hideInitialLoading() {
+        DispatchQueue.main.async { [weak self] in
+            self?.mainView.initialLoadingIndicator.stopAnimating()
+            self?.mainView.heroesTableView.isHidden = false
+        }
+    }
+
+    func showPaginationLoading() {
+        DispatchQueue.main.async { [weak self] in
+            self?.mainView.paginationLoadingIndicator.startAnimating()
+        }
+    }
+
+    func hidePaginationLoading() {
+        DispatchQueue.main.async { [weak self] in
+            self?.mainView.paginationLoadingIndicator.stopAnimating()
+        }
+    }
+
 }
 
 extension ListHeroesViewController: UITableViewDelegate {
