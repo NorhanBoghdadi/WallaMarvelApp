@@ -65,7 +65,10 @@ final class ListHeroesTableViewCell: UITableViewCell {
         containerView.addSubview(heroImageView)
         containerView.addSubview(overlayView)
         containerView.addSubview(nameLabel)
+        setupConstraints()
+    }
 
+    func setupConstraints() {
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Layout.padding/2),
             containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Layout.padding),

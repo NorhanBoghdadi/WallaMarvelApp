@@ -7,6 +7,16 @@ final class ListHeroesView: UIView {
         static let spacing: CGFloat = 12
     }
 
+    let searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "Search heroes..."
+        searchBar.searchBarStyle = .minimal
+        searchBar.barStyle = .black
+        searchBar.tintColor = .white
+        searchBar.searchTextField.textColor = .white
+        return searchBar
+    }()
+
     let heroesTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.register(ListHeroesTableViewCell.self, forCellReuseIdentifier: "ListHeroesTableViewCell")
@@ -28,11 +38,21 @@ final class ListHeroesView: UIView {
 
     private func setupViews() {
         backgroundColor = .black
-        addSubview(heroesTableView)
-        heroesTableView.translatesAutoresizingMaskIntoConstraints = false
 
+        [searchBar, heroesTableView].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            addSubview($0)
+        }
+        setupConstraints()
+    }
+
+    func setupConstraints() {
         NSLayoutConstraint.activate([
-            heroesTableView.topAnchor.constraint(equalTo: topAnchor),
+            searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
+            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor),
+
+            heroesTableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
             heroesTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             heroesTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             heroesTableView.bottomAnchor.constraint(equalTo: bottomAnchor)
