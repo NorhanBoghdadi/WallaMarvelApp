@@ -10,9 +10,14 @@ import Foundation
 
 struct APIConfiguration {
     static let baseURL = "https://gateway.marvel.com:443"
-    static let privateKey = "188f9a5aa76846d907c41cbea6506e4cc455293f"
-    static let publicKey = "d575c26d5c746f623518e753921ac847"
-    
+    private static var privateKey: String {
+        return Bundle.main.infoDictionary?["MARVEL_PRIVATE_KEY"] as? String ?? ""
+    }
+
+    private static var publicKey: String {
+        return Bundle.main.infoDictionary?["MARVEL_PUBLIC_KEY"] as? String ?? ""
+    }
+
     static func authenticationQueryItems() -> [URLQueryItem] {
         let ts = String(Int(Date().timeIntervalSince1970))
         let hash = "\(ts)\(privateKey)\(publicKey)".md5
