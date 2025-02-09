@@ -6,13 +6,24 @@
 //
 
 
-struct StoryList: Decodable {
+struct StoryList: Codable {
     let available: Int
     let items: [StorySummary]
+
+    init(available: Int = 0, items: [StorySummary] = []) {
+        self.available = available
+        self.items = items
+    }
 }
 
-struct StorySummary: Decodable {
-    let name: String
+struct StorySummary: Codable {
     let resourceURI: String
+    let name: String
     let type: String
+
+    init(resourceURI: String = "", name: String = "", type: String = "") {
+        self.resourceURI = resourceURI
+        self.name = name
+        self.type = type
+    }
 }
