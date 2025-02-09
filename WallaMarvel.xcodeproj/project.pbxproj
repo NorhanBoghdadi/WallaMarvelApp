@@ -41,6 +41,8 @@
 		EBABC5022D58E423003342E5 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC5012D58E423003342E5 /* MockURLProtocol.swift */; };
 		EBABC5042D58E49B003342E5 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC5032D58E49B003342E5 /* NetworkServiceTests.swift */; };
 		EBABC5082D58F85F003342E5 /* MockCharacterDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC5072D58F85F003342E5 /* MockCharacterDataModel.swift */; };
+		EBABC50B2D58F8F8003342E5 /* MockListHeroesUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC50A2D58F8F8003342E5 /* MockListHeroesUI.swift */; };
+		EBABC50D2D58F93F003342E5 /* ListHeroesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC50C2D58F93F003342E5 /* ListHeroesPresenterTests.swift */; };
 		EBE1CAC12D53577F00DC7D2A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EBE1CAC02D53577F00DC7D2A /* Kingfisher */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +102,8 @@
 		EBABC5012D58E423003342E5 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		EBABC5032D58E49B003342E5 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		EBABC5072D58F85F003342E5 /* MockCharacterDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCharacterDataModel.swift; sourceTree = "<group>"; };
+		EBABC50A2D58F8F8003342E5 /* MockListHeroesUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockListHeroesUI.swift; sourceTree = "<group>"; };
+		EBABC50C2D58F93F003342E5 /* ListHeroesPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHeroesPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,7 @@
 		1A0E3AAE2862F7E300132FCB /* WallaMarvelTests */ = {
 			isa = PBXGroup;
 			children = (
+				EBABC5092D58F8EE003342E5 /* MarvelListHeroesPresenter */,
 				EBABC4FE2D58E3F0003342E5 /* MarvelNetworkService */,
 				EBABC4F92D58E02A003342E5 /* MarvelRepoTests */,
 				1A0E3AAF2862F7E300132FCB /* WallaMarvelTests.swift */,
@@ -266,6 +271,15 @@
 				EBABC5072D58F85F003342E5 /* MockCharacterDataModel.swift */,
 			);
 			path = MarvelNetworkService;
+			sourceTree = "<group>";
+		};
+		EBABC5092D58F8EE003342E5 /* MarvelListHeroesPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				EBABC50C2D58F93F003342E5 /* ListHeroesPresenterTests.swift */,
+				EBABC50A2D58F8F8003342E5 /* MockListHeroesUI.swift */,
+			);
+			path = MarvelListHeroesPresenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,6 +448,8 @@
 				EBABC5002D58E40D003342E5 /* MockNetworkService.swift in Sources */,
 				EBABC4FD2D58E07D003342E5 /* MarvelRepositoryTests.swift in Sources */,
 				EBABC5082D58F85F003342E5 /* MockCharacterDataModel.swift in Sources */,
+				EBABC50D2D58F93F003342E5 /* ListHeroesPresenterTests.swift in Sources */,
+				EBABC50B2D58F8F8003342E5 /* MockListHeroesUI.swift in Sources */,
 				EBABC5022D58E423003342E5 /* MockURLProtocol.swift in Sources */,
 				EBABC4FB2D58E04E003342E5 /* MockMarvelRepository.swift in Sources */,
 				EBABC5042D58E49B003342E5 /* NetworkServiceTests.swift in Sources */,
