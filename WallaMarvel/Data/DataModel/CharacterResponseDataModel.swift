@@ -10,6 +10,16 @@ struct CharacterDataContainer: Decodable {
         case data
         case count, limit, offset, characters = "results"
     }
+
+    init(count: Int,
+         limit: Int,
+         offset: Int,
+         characters: [CharacterDataModel]) {
+        self.count = count
+        self.limit = limit
+        self.offset = offset
+        self.characters = characters
+    }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
