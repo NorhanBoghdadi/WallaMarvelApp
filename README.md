@@ -101,7 +101,7 @@ UI ← Presenter ← Repository ← Network Service ← Data Models
 <key>MARVEL_PRIVATE_KEY</key>
 <string>your_private_key</string>
 ```
-3. Open `WallaMarvel.xcworkspace`
+3. Open `WallaMarvel.xcodeproj`
 
 ### Development Best Practices
 - Follow SwiftLint rules configuration
