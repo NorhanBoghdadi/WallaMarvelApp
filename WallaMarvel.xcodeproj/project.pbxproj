@@ -37,6 +37,10 @@
 		EBABC2512D563E8F003342E5 /* HeroDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC2502D563E8F003342E5 /* HeroDetailViewController.swift */; };
 		EBABC4FB2D58E04E003342E5 /* MockMarvelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC4FA2D58E04E003342E5 /* MockMarvelRepository.swift */; };
 		EBABC4FD2D58E07D003342E5 /* MarvelRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC4FC2D58E07D003342E5 /* MarvelRepositoryTests.swift */; };
+		EBABC5002D58E40D003342E5 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC4FF2D58E40D003342E5 /* MockNetworkService.swift */; };
+		EBABC5022D58E423003342E5 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC5012D58E423003342E5 /* MockURLProtocol.swift */; };
+		EBABC5042D58E49B003342E5 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC5032D58E49B003342E5 /* NetworkServiceTests.swift */; };
+		EBABC5082D58F85F003342E5 /* MockCharacterDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABC5072D58F85F003342E5 /* MockCharacterDataModel.swift */; };
 		EBE1CAC12D53577F00DC7D2A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EBE1CAC02D53577F00DC7D2A /* Kingfisher */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +96,10 @@
 		EBABC2502D563E8F003342E5 /* HeroDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailViewController.swift; sourceTree = "<group>"; };
 		EBABC4FA2D58E04E003342E5 /* MockMarvelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMarvelRepository.swift; sourceTree = "<group>"; };
 		EBABC4FC2D58E07D003342E5 /* MarvelRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelRepositoryTests.swift; sourceTree = "<group>"; };
+		EBABC4FF2D58E40D003342E5 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
+		EBABC5012D58E423003342E5 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		EBABC5032D58E49B003342E5 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
+		EBABC5072D58F85F003342E5 /* MockCharacterDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCharacterDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +167,7 @@
 		1A0E3AAE2862F7E300132FCB /* WallaMarvelTests */ = {
 			isa = PBXGroup;
 			children = (
+				EBABC4FE2D58E3F0003342E5 /* MarvelNetworkService */,
 				EBABC4F92D58E02A003342E5 /* MarvelRepoTests */,
 				1A0E3AAF2862F7E300132FCB /* WallaMarvelTests.swift */,
 			);
@@ -246,6 +255,17 @@
 				EBABC4FA2D58E04E003342E5 /* MockMarvelRepository.swift */,
 			);
 			path = MarvelRepoTests;
+			sourceTree = "<group>";
+		};
+		EBABC4FE2D58E3F0003342E5 /* MarvelNetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				EBABC5032D58E49B003342E5 /* NetworkServiceTests.swift */,
+				EBABC4FF2D58E40D003342E5 /* MockNetworkService.swift */,
+				EBABC5012D58E423003342E5 /* MockURLProtocol.swift */,
+				EBABC5072D58F85F003342E5 /* MockCharacterDataModel.swift */,
+			);
+			path = MarvelNetworkService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,8 +431,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBABC5002D58E40D003342E5 /* MockNetworkService.swift in Sources */,
 				EBABC4FD2D58E07D003342E5 /* MarvelRepositoryTests.swift in Sources */,
+				EBABC5082D58F85F003342E5 /* MockCharacterDataModel.swift in Sources */,
+				EBABC5022D58E423003342E5 /* MockURLProtocol.swift in Sources */,
 				EBABC4FB2D58E04E003342E5 /* MockMarvelRepository.swift in Sources */,
+				EBABC5042D58E49B003342E5 /* NetworkServiceTests.swift in Sources */,
 				1A0E3AB02862F7E300132FCB /* WallaMarvelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
